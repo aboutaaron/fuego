@@ -1,30 +1,28 @@
 'use strict';
 
-var Fuego = Fuego || {}, data;
+var Fuego = Fuego || {}, data, topo;
 
 Fuego = {
 	init: function () {
-		Fuego.render();
+		Fuego.fetch();
 	},
 
 	fetch: function () {
-		/*d3.json('http://calfire-api.herokuapp.com/counties/', function (error, json) {
+		d3.json('http://calfire-api.herokuapp.com/counties/', function (error, json) {
 			if (error) return console.warn(error);
 			data = json;
 			Fuego.paint(json);
-		});*/
-		d3.json('/json/counties.json', function (error, counties) {
-			console.log(counties);
 		});
-	},
-
-	render: function () {
 		var width = 960,
 				height = 1160;
 
-		var svg = d3.select('body').append('svg')
+		var svg = d3.select('#map').append('svg')
 				.attr('width', width)
 				.attr('height', height);
+
+		d3.json('/json/counties.json', function (error, counties) {
+			topo = counties;
+		});
 	},
 
 	paint: function (objects) {
