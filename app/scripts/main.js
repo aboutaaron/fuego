@@ -1,6 +1,6 @@
 'use strict';
 
-var Fuego = Fuego || {}, data, topo;
+var Fuego = Fuego || {}, data;
 
 Fuego = {
 	init: function () {
@@ -12,16 +12,6 @@ Fuego = {
 			if (error) return console.warn(error);
 			data = json;
 			Fuego.paint(json);
-		});
-		var width = 960,
-				height = 1160;
-
-		var svg = d3.select('#map').append('svg')
-				.attr('width', width)
-				.attr('height', height);
-
-		d3.json('/json/counties.json', function (error, counties) {
-			topo = counties;
 		});
 	},
 
