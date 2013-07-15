@@ -4,7 +4,7 @@ var Fuego = Fuego || {}, data;
 
 Fuego = {
 	init: function () {
-		Fuego.fetch();
+		Fuego.render();
 	},
 
 	fetch: function () {
@@ -16,6 +16,15 @@ Fuego = {
 		d3.json('/json/counties.json', function (error, counties) {
 			console.log(counties);
 		});
+	},
+
+	render: function () {
+		var width = 960,
+				height = 1160;
+
+		var svg = d3.select('body').append('svg')
+				.attr('width', width)
+				.attr('height', height);
 	},
 
 	paint: function (objects) {
