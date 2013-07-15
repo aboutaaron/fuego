@@ -8,10 +8,13 @@ Fuego = {
 	},
 
 	fetch: function () {
-		d3.json('http://calfire-api.herokuapp.com/counties/', function (error, json) {
+		/*d3.json('http://calfire-api.herokuapp.com/counties/', function (error, json) {
 			if (error) return console.warn(error);
 			data = json;
 			Fuego.paint(json);
+		});*/
+		d3.json('/json/counties.json', function (error, counties) {
+			console.log(counties);
 		});
 	},
 
