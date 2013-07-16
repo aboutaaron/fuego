@@ -1,5 +1,5 @@
 <svg version="1.1"
-	 id="Map_of_the_counties_of_California" width="620.843" height="733.026" viewBox="0 0 620.843 733.026">
+	 id="Map_of_the_counties_of_California" width="620.843" height="733.026" viewBox="0 0 620.843 733.026" preserveAspectRatio="xMidYMid">
 	<g>
 		<polyline id="Alameda" fill="#CCCCCC" stroke="#FFFFFF" stroke-miterlimit="1" points="160.354,327.507 160.446,327.867 
 			160.371,329.095 160.464,329.46 160.166,329.92 160.457,331.061 160.097,331.152 160.188,331.512 160.38,332.262 160.186,333.111 
