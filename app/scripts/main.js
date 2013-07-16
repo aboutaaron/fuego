@@ -8,10 +8,12 @@ Fuego = {
 	},
 
 	fetch: function () {
-		d3.json('http://calfire-api.herokuapp.com/counties/', function (error, json) {
-			if (error) return console.warn(error);
-			data = json;
-			Fuego.paint(json);
+		$('#map').load('/images/Blank_California_Map.svg', function () {
+			d3.json('http://calfire-api.herokuapp.com/counties/', function (error, json) {
+				if (error) return console.warn(error);
+				data = json;
+				Fuego.paint(json);
+			});
 		});
 	},
 
