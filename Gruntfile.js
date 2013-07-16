@@ -222,17 +222,7 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= yeoman.app %>/images',
-                    src: '{,*/}*.{png,jpg,jpeg}',
-                    dest: '<%= yeoman.dist %>/images'
-                }]
-            }
-        },
-        svgmin: {
-            dist: {
-                files: [{
-                    expand: true,
-                    cwd: '<%= yeoman.app %>/images',
-                    src: '{,*/}*.svg',
+                    src: '{,*/}*.{png,jpg,jpeg,svg}',
                     dest: '<%= yeoman.dist %>/images'
                 }]
             }
@@ -320,7 +310,6 @@ module.exports = function (grunt) {
                 'compass',
                 'copy:styles',
                 'imagemin',
-                'svgmin',
                 'htmlmin'
             ]
         }
