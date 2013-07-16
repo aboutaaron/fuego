@@ -9,15 +9,31 @@ Fuego = {
 
 	build: function () {
 		// Fetch the SVG
-		d3.xml('images/Blank_California_Map.svg', 'image/svg+xml', function (svg) {
-			// Append to container
-			document.querySelector('#map').appendChild(svg.documentElement);
-			// Attach EventListener
-			Fuego.countyStats();
+		var width = 960,
+				height = 1160;
 
-			// Pull from Json
-			Fuego.ignite()
+		var svg = d3.select('#map').append('svg')
+			.attr('width', width)
+			.attr('height', height);
 
+		d3.json('/json/usa_states_ca_counties.json', function (error, json) {
+			console.log(json);
+			var california = topojson.feature(json, json.objects.counties_ca);
+			var usa = topojson.feature(json, json.objects.states_all)
+
+			var projection = d3.geo.albers()
+					.center([-0.6, 38.7])
+					.rotate([102, -3, -20])
+					.scale(5000)
+					.translate([width / 2, height / 2]);
+
+			var path = d3.geo.path()
+					.projection(projection)
+
+			svg.append('path')
+				.datum(california)
+				.datum(usa)
+				.attr('d', path);
 		});
 	},
 
