@@ -53,7 +53,10 @@ Fuego = {
 			svg.selectAll('.county')
 					.data(california.features)
 				.enter().append('path')
-					.attr('class', function(d) { return 'county ' + d.properties.name })
+					.attr('id', function(d) { 
+						return d.properties.name.toLowerCase().replace(/\s/g,'-') 
+					})
+					.attr('class', 'county')
 					.attr('d', path);
 		});
 	},
@@ -69,13 +72,13 @@ Fuego = {
 	},
 
 	paint: function (objects) {
-	  d3.selectAll('path, polyline, polygon')
+	  d3.selectAll('.county')
 	    .attr('fill', function(d) {
-	      var abbr = this.id.toLowerCase().replace(/_/g,'-');
+	    	var abbr = this;
 	      var fires;
 
 			  objects.forEach(function (object) {
-			  	if (object.county.slug == abbr) {
+			  	if (object.county.slug == abbr.id) {
 			  		fires = object.county.fires.length;
 			  	}
 			  });
