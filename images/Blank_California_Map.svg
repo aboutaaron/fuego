@@ -1,6 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 13.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 14948)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+	<!ENTITY ns_extend "http://ns.adobe.com/Extensibility/1.0/">
+	<!ENTITY ns_ai "http://ns.adobe.com/AdobeIllustrator/10.0/">
+	<!ENTITY ns_graphs "http://ns.adobe.com/Graphs/1.0/">
+	<!ENTITY ns_vars "http://ns.adobe.com/Variables/1.0/">
+	<!ENTITY ns_imrep "http://ns.adobe.com/ImageReplacement/1.0/">
+	<!ENTITY ns_sfw "http://ns.adobe.com/SaveForWeb/1.0/">
+	<!ENTITY ns_custom "http://ns.adobe.com/GenericCustomNamespace/1.0/">
+	<!ENTITY ns_adobe_xpath "http://ns.adobe.com/XPath/1.0/">
+]>
 <svg version="1.1"
-	 id="Map_of_the_counties_of_California" width="620.843" height="733.026" viewBox="0 0 620.843 733.026" preserveAspectRatio="xMidYMid">
-	<g>
+	 id="Map_of_the_counties_of_California_x2C__without_legend" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xapGImg="http://ns.adobe.com/xap/1.0/g/img/" xmlns:cc="http://web.resource.org/cc/" xmlns:ns="http://ns.adobe.com/Variables/1.0/" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:xap="http://ns.adobe.com/xap/1.0/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ns0="http://ns.adobe.com/SaveForWeb/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/" sodipodi:docbase="d:\Home\Wikipedia" sodipodi:docname="California county map.svg" inkscape:version="0.44" sodipodi:version="0.32"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="620.843px"
+	 height="733.026px" viewBox="0 0 620.843 733.026" enable-background="new 0 0 620.843 733.026" xml:space="preserve">
+	<g i:extraneous="self">
 		<polyline id="Alameda" fill="#CCCCCC" stroke="#FFFFFF" stroke-miterlimit="1" points="160.354,327.507 160.446,327.867 
 			160.371,329.095 160.464,329.46 160.166,329.92 160.457,331.061 160.097,331.152 160.188,331.512 160.38,332.262 160.186,333.111 
 			160.278,333.471 160.37,333.831 160.028,335.516 160.221,336.271 160.136,339.068 159.954,341.485 159.972,343.079 
@@ -261,7 +275,7 @@
 			45.474,49.489 39.425,49.044 39.767,42.624 23.009,42.139 22.916,41.773 22.425,36.721 24.383,36.638 22.049,35.245 
 			19.354,21.641 16.292,20.44 13.948,17.485 16.165,12.158 17.323,5.913 17.882,4.977 16.741,0.5 55.564,2.104 		"/>
 		
-			<path id="El_Dorado" fill="#CCCCCC" stroke="#FFFFFF" stroke-miterlimit="1" d="
+			<path id="El_Dorado" sodipodi:nodetypes="ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc" fill="#CCCCCC" stroke="#FFFFFF" stroke-miterlimit="1" d="
 			M205.721,237.03l0.098,0.384l-0.384,0.098l-0.383,0.098l-0.265,0.446l0.098,0.383l0.098,0.384l-0.354,0.09l0.09,0.355
 			l-0.384,0.098l-0.09-0.354l-0.354,0.09l-0.098-0.384l-0.316,0.49l-0.263,0.445l0.098,0.383l0.09,0.354l-0.355,0.091l0.098,0.384
 			l-0.481-0.286l-0.354,0.09l-0.091-0.355l-0.414,0.105l-0.354,0.09l-0.098-0.383l-0.354,0.09l-0.287,0.481l-0.354,0.09
@@ -442,7 +456,7 @@
 			l-0.092-0.359l-0.098-0.385l0.297-0.465l-0.092-0.359l-0.1-0.391l-0.092-0.359l0.36-0.092l-0.098-0.385l-0.093-0.366l-0.092-0.36
 			l0.39-0.099l-0.099-0.39 M140.123,180.002l-0.092-0.36l0.359-0.092l0.092,0.36L140.123,180.002"/>
 		
-			<path id="Humboldt" fill="#CCCCCC" stroke="#FFFFFF" stroke-miterlimit="1" d="
+			<path id="Humboldt" sodipodi:nodetypes="ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc" fill="#CCCCCC" stroke="#FFFFFF" stroke-miterlimit="1" d="
 			M22.917,41.788l0.226,7.051L19.307,63.28l-1.295,4.294l0.211,5.514l0.919,2.125l-0.528,4.098l-5.249,10.492l-0.912,2.592
 			l-0.738,1.792l0.188,0.739l0.098,0.383l1.664-1.242l2.32-3.36l0.452-1.311l0.166-0.828l0.384-0.098l1.574,0.007l0.956,0.543
 			l0.542,0.647l0.098,0.384l-0.55,0.926l-0.994,0.663l-0.293,0.453l-1.378,0.76l-1.053,0.678l-0.354,0.09l-0.648,0.543l-0.481,1.318
@@ -743,7 +757,7 @@
 			77.16,311.842 73.91,311.488 78.392,299.628 76.322,293.028 82.241,302.205 85.872,305.659 79.859,294.492 77.62,293.47 
 			75.545,288.459 75.447,288.073 		"/>
 		
-			<path id="Mariposa" fill="#CCCCCC" stroke="#FFFFFF" stroke-miterlimit="1" d="
+			<path id="Mariposa" sodipodi:nodetypes="cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc" fill="#CCCCCC" stroke="#FFFFFF" stroke-miterlimit="1" d="
 			M247.94,328.157l0.105,0.413l0.09,0.355l0.09,0.354l-0.354,0.09l-0.355,0.09l0.098,0.384l-0.383,0.098l-0.355,0.09l0.098,0.384
 			l-0.383,0.098l-0.384,0.098l0.098,0.384l-0.354,0.09l0.09,0.354l-0.384,0.098l-0.09-0.354l-0.354,0.09l-0.414,0.105l-0.098-0.384
 			l-0.355,0.09l-0.127-0.377l-0.354,0.09l-0.384,0.098l-0.098-0.384l-0.444-0.264l-0.384,0.098l0.09,0.354l0.098,0.384l-0.384,0.098
@@ -1277,7 +1291,7 @@
 			103.983,334.744 104.058,328.78 105.617,328.76 105.992,327.1 110.932,327.822 111.996,333.5 111.338,334.051 111.53,334.801 		
 			"/>
 		
-			<path id="San_Joaquin" fill="#CCCCCC" stroke="#FFFFFF" stroke-miterlimit="1" d="
+			<path id="San_Joaquin" sodipodi:nodetypes="ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc" fill="#CCCCCC" stroke="#FFFFFF" stroke-miterlimit="1" d="
 			M165.512,293.678l0.098,0.384l0.091,0.355l-0.265,0.444l-0.384,0.098l0.098,0.384l-0.383,0.098l0.098,0.384l0.098,0.384
 			l-0.384,0.098l-0.098-0.384l-0.354,0.09l0.098,0.384l-0.355,0.09l0.09,0.354l0.09,0.355l-0.383,0.098l0.105,0.413l-0.384,0.098
 			l-0.383,0.098l-0.354,0.09l0.09,0.354l-0.354,0.09l0.098,0.384l0.09,0.355l0.09,0.354l0.105,0.414l0.09,0.355l-0.384,0.098
