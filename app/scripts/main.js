@@ -15,6 +15,7 @@ Fuego = {
 				Fuego.paint(json);
 			});
 		});
+		Fuego._responsive();
 	},
 
 	paint: function (objects) {
@@ -42,6 +43,18 @@ Fuego = {
            d > 1   ? '#FED976' :
            d > 0   ? '#FFEDA0' :
                       '#E2E2E2';
+	},
+
+	_responsive: function () {
+		var map = $('#Map_of_the_counties_of_California'),
+				aspect = map.width() / map.height(),
+				container = map.parent();
+
+		$(window).on('resize', function () {
+			var targetWidth = container.width();
+			map.attr('width', targetWidth);
+			map.attr('height', Math.round(targetWidth / aspect));
+		}).trigger('resize');
 	}
 }
 
