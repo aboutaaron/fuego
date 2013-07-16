@@ -8,10 +8,16 @@ Fuego = {
 	},
 
 	fetch: function () {
-		$('#map').load('images/Blank_California_Map.svg', function () {
+		// Fetch the SVG
+		d3.xml('images/Blank_California_Map.svg', 'image/svg+xml', function (svg) {
+			// Append to container
+			document.querySelector('#map').appendChild(svg.documentElement);
+
+			// Fetch fire JSON from Heroku App
 			d3.json('http://calfire-api.herokuapp.com/counties/', function (error, json) {
 				if (error) return console.warn(error);
 				data = json;
+				// Color the SVG
 				Fuego.paint(json);
 			});
 		});
