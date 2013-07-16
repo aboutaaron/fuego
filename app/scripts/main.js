@@ -16,24 +16,32 @@ Fuego = {
 			.attr('width', width)
 			.attr('height', height);
 
+		var projection = d3.geo.albers()
+				.center([-0.6, 38.7])
+				.rotate([102, -3, -20])
+				.scale(5000)
+				.translate([width / 2, height / 2]);
+
+		var path = d3.geo.path()
+				.projection(projection);
+
 		d3.json('/json/usa_states_ca_counties.json', function (error, json) {
-			console.log(json);
+			console.log(json.objects.counties_ca);
 			var california = topojson.feature(json, json.objects.counties_ca);
-			var usa = topojson.feature(json, json.objects.states_all)
+			var usa = topojson.feature(json, json.objects.states_all);
 
-			var projection = d3.geo.albers()
-					.center([-0.6, 38.7])
-					.rotate([102, -3, -20])
-					.scale(5000)
-					.translate([width / 2, height / 2]);
-
-			var path = d3.geo.path()
-					.projection(projection)
+			data = california;
 
 			svg.append('path')
 				.datum(california)
 				.datum(usa)
 				.attr('d', path);
+
+			svg.selectAll('.county')
+					.data(california.features)
+				.enter().append('path')
+					.attr('class', function(d) { return 'county ' + d.properties })
+					.attr('d', path);
 		});
 	},
 
