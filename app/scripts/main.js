@@ -20,8 +20,10 @@ Fuego = {
 				// Color the SVG
 				Fuego.paint(json);
 			});
+
+			// Attach EventListener
+			Fuego.countyStats();
 		});
-		Fuego._responsive();
 	},
 
 	paint: function (objects) {
@@ -61,6 +63,14 @@ Fuego = {
 			map.attr('width', targetWidth);
 			map.attr('height', Math.round(targetWidth / aspect));
 		}).trigger('resize');
+	},
+
+	countyStats: function () {
+		[].forEach.call(document.querySelectorAll('path, polyline, polygon'), function (e) {
+			e.addEventListener('click', function () {
+				console.log(this.id);
+			}, false);
+		});
 	}
 }
 
