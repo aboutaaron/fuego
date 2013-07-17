@@ -3,66 +3,63 @@
 var Fuego = Fuego || {}, data;
 
 Fuego = {
-	init: function () {
-		Fuego.build();
+
+	settings: {
+		width: 960,
+		height: 1160,
+		center: [-0.6, 38.7],
+		rotate: [102, -3, -20],
+		scale: 3000
 	},
 
-	buildSVG: function () {
+	map: {
+		svg: '',
+		projection: '',
+		path: ''
+	},
+
+	createSVG: function () {
+		var s = Fuego.settings
+		var m = Fuego.map;
+
 		// Fetch the SVG
-		var width = 960,
-				height = 1160;
+		m.svg = d3.select('#map').append('svg')
+			.attr('class', 'background')
+			.attr('width', s.width)
+			.attr('height', s.height);
 
-		var svg = d3.select('#map').append('svg')
-			.attr('width', width)
-			.attr('height', height);
+		m.projection = d3.geo.albers()
+				.center(s.center)
+				.rotate(s.rotate)
+				.scale(s.scale)
+				.translate([s.width / 2, s.height / 2]);
 
-		var projection = d3.geo.albers()
-				.center([-0.6, 38.7])
-				.rotate([102, -3, -20])
-				.scale(5000)
-				.translate([width / 2, height / 2]);
-
-		var path = d3.geo.path()
-				.projection(projection);
+		m.path = d3.geo.path()
+				.projection(m.projection);
 	},
 
 	build: function () {
-		// Fetch the SVG
-		var width = 960,
-				height = 1160;
+		var m = Fuego.map;
+		Fuego.createSVG();
 
-		var svg = d3.select('#map').append('svg')
-			.attr('width', width)
-			.attr('height', height);
-
-		var projection = d3.geo.albers()
-				.center([-0.6, 38.7])
-				.rotate([102, -3, -20])
-				.scale(3000)
-				.translate([width / 2, height / 2]);
-
-		var path = d3.geo.path()
-				.projection(projection);
-
-		// JSON LIFE
 		d3.json('/json/usa_states_ca_counties.json', function (error, json) {
 			console.log(json.objects.counties_ca);
 			var california = topojson.feature(json, json.objects.counties_ca);
 			var usa = topojson.feature(json, json.objects.states_all);
 
-			svg.append('path')
+			m.svg.append('path')
 				.datum(usa)
 				.attr('fill', '#626262')
-				.attr('d', path);
+				.attr('d', m.path);
 
-			svg.selectAll('.county')
+			m.svg.selectAll('.county')
 					.data(california.features)
 				.enter().append('path')
 					.attr('id', function(d) { 
 						return d.properties.name.toLowerCase().replace(/\s/g,'-') 
 					})
 					.attr('class', 'county')
-					.attr('d', path);
+					.attr('d', m.path)
 		});
 
 		Fuego.ignite();
@@ -87,7 +84,7 @@ Fuego = {
 			  objects.forEach(function (object) {
 			  	if (object.county.slug == abbr.id) {
 			  		fires = object.county.fires.length;
-			  		console.log(abbr);
+			  		//console.log(abbr);
 			  	}
 			  });
 			  return Fuego.getColor(fires);
@@ -109,17 +106,9 @@ Fuego = {
 	_responsive: function () {
 		d3.select('g').attr('transform', 'scale(' + $('#map').width()/900 + ')');
 		$('svg').height($('#map').width()*0.618);
-	},
-
-	countyStats: function () {
-		[].forEach.call(document.querySelectorAll('path, polyline, polygon'), function (e) {
-			e.addEventListener('click', function () {
-				console.log(this.id);
-			}, false);
-		});
-	},
+	}
 }
 
 jQuery(document).ready(function($) {
-	Fuego.init();
+	Fuego.build();
 });
