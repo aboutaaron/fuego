@@ -87,6 +87,7 @@ Fuego = {
 			  objects.forEach(function (object) {
 			  	if (object.county.slug == abbr.id) {
 			  		fires = object.county.fires.length;
+			  		console.log(abbr);
 			  	}
 			  });
 			  return Fuego.getColor(fires);
@@ -106,15 +107,8 @@ Fuego = {
 	},
 
 	_responsive: function () {
-		var map = $('#Map_of_the_counties_of_California'),
-				aspect = map.width() / map.height(),
-				container = map.parent();
-
-		$(window).on('resize', function () {
-			var targetWidth = container.width();
-			map.attr('width', targetWidth);
-			map.attr('height', Math.round(targetWidth / aspect));
-		}).trigger('resize');
+		d3.select('g').attr('transform', 'scale(' + $('#map').width()/900 + ')');
+		$('svg').height($('#map').width()*0.618);
 	},
 
 	countyStats: function () {
@@ -123,7 +117,7 @@ Fuego = {
 				console.log(this.id);
 			}, false);
 		});
-	}
+	},
 }
 
 jQuery(document).ready(function($) {
