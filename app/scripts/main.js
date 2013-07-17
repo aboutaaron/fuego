@@ -5,11 +5,11 @@ var Fuego = Fuego || {}, data;
 Fuego = {
 
 	settings: {
-		width: 960,
+		width: 2160,
 		height: 1160,
 		center: [-0.6, 38.7],
-		rotate: [102, -3, -20],
-		scale: 3000
+		rotate: [104, -3, -15],
+		scale: 5000
 	},
 
 	map: {
@@ -23,7 +23,7 @@ Fuego = {
 		var m = Fuego.map;
 
 		// Fetch the SVG
-		m.svg = d3.select('#map').append('svg')
+		m.svg = d3.select('body').append('svg')
 			.attr('class', 'background')
 			.attr('width', s.width)
 			.attr('height', s.height);
