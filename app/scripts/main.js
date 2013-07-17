@@ -38,7 +38,7 @@ Fuego = {
 		var projection = d3.geo.albers()
 				.center([-0.6, 38.7])
 				.rotate([102, -3, -20])
-				.scale(5000)
+				.scale(3000)
 				.translate([width / 2, height / 2]);
 
 		var path = d3.geo.path()
@@ -50,6 +50,11 @@ Fuego = {
 			var california = topojson.feature(json, json.objects.counties_ca);
 			var usa = topojson.feature(json, json.objects.states_all);
 
+			svg.append('path')
+				.datum(usa)
+				.attr('fill', '#626262')
+				.attr('d', path);
+
 			svg.selectAll('.county')
 					.data(california.features)
 				.enter().append('path')
@@ -59,6 +64,8 @@ Fuego = {
 					.attr('class', 'county')
 					.attr('d', path);
 		});
+
+		Fuego.ignite();
 	},
 
 	ignite: function () {
