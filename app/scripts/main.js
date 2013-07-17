@@ -42,7 +42,7 @@ Fuego = {
 		var m = Fuego.map;
 		Fuego.createSVG();
 
-		d3.json('/json/usa_states_ca_counties.json', function (error, json) {
+		d3.json('json/usa_states_ca_counties.json', function (error, json) {
 			console.log(json.objects.counties_ca);
 			var california = topojson.feature(json, json.objects.counties_ca);
 			var usa = topojson.feature(json, json.objects.states_all);
