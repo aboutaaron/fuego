@@ -12,7 +12,7 @@ Fuego = {
 			Fuego.countyStats();
 
 			// Pull from Json
-			Fuego._ignite()
+			Fuego.ignite()
 
 		});
 	},
