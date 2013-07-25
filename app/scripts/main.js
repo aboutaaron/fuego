@@ -9,14 +9,14 @@ Fuego = {
 		height: 800,
 		center: [-0.6, 38.7],
 		rotate: [104, -3, -15],
-		scale: 2696
+		scale: 1000,
+		translate: [480, 250]
 	},
 
 	map: {
 		svg: '',
 		projection: '',
 		path: '',
-		force: ''
 	},
 
 	createSVG: function () {
@@ -31,15 +31,12 @@ Fuego = {
 			.attr('height', s.height);
 
 		m.projection = d3.geo.albers()
-				//.center([37.37, -122.23])
-				//.rotate(s.rotate)
 				.parallels([29.5, 45.5])
-				.scale(1200)
-				.translate([480, 350]);
+				.scale(s.scale)
+				.translate(s.translate);
 
 		m.path = d3.geo.path()
 				.projection(m.projection);
-		m.force = d3.layout.force().size([s.width, s.height]);
 	},
 
 	build: function () {
@@ -67,7 +64,7 @@ Fuego = {
 					.attr('d', m.path)
 		});
 
-		Fuego._devIgnite();
+		Fuego.ignite();
 	},
 
 	ignite: function () {
@@ -80,7 +77,7 @@ Fuego = {
 		});
 	},
 
-	_devIgnite: function () {
+	_ignite: function () {
 		// Fetch fire JSON
 		d3.json('http://0.0.0.0:3000/counties/', function (error, json) {
 			if (error) return console.warn(error);
