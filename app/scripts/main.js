@@ -87,6 +87,7 @@ Fuego = {
 			data = json;
 			// Color the SVG
 			Fuego.paint(json);
+			console.log("****************************************\nYOU ARE USING THE DEV COMMAND OF .ignite\n****************************************");
 		});
 	},
 
