@@ -5,11 +5,11 @@ var Fuego = Fuego || {}, data;
 Fuego = {
 
 	settings: {
-		width: 2160,
-		height: 1160,
+		width: 1160,
+		height: 800,
 		center: [-0.6, 38.7],
 		rotate: [104, -3, -15],
-		scale: 5000
+		scale: 2696
 	},
 
 	map: {
@@ -23,16 +23,18 @@ Fuego = {
 		var m = Fuego.map;
 
 		// Fetch the SVG
-		m.svg = d3.select('body').append('svg')
-			.attr('class', 'background')
-			.attr('width', s.width)
-			.attr('height', s.height);
+		m.svg = d3.select('.container')
+			.append('svg')
+			.append('g')
+			//.attr('width', s.width)
+			//.attr('height', s.height);
 
 		m.projection = d3.geo.albers()
-				.center(s.center)
-				.rotate(s.rotate)
-				.scale(s.scale)
-				.translate([s.width / 2, s.height / 2]);
+				//.center([37.37, -122.23])
+				//.rotate(s.rotate)
+				.parallels([29.5, 45.5])
+				.scale(1000)
+				//.translate([480, 250]);
 
 		m.path = d3.geo.path()
 				.projection(m.projection);
@@ -40,6 +42,7 @@ Fuego = {
 
 	build: function () {
 		var m = Fuego.map;
+
 		Fuego.createSVG();
 
 		d3.json('json/usa_states_ca_counties.json', function (error, json) {
@@ -55,19 +58,29 @@ Fuego = {
 			m.svg.selectAll('.county')
 					.data(california.features)
 				.enter().append('path')
-					.attr('id', function(d) { 
-						return d.properties.name.toLowerCase().replace(/\s/g,'-') 
+					.attr('id', function(d) {
+						return d.properties.name.toLowerCase().replace(/\s/g,'-')
 					})
 					.attr('class', 'county')
 					.attr('d', m.path)
 		});
 
-		Fuego.ignite();
+		Fuego._devIgnite();
 	},
 
 	ignite: function () {
 		// Fetch fire JSON from Heroku App
 		d3.json('http://calfire-api.herokuapp.com/counties/', function (error, json) {
+			if (error) return console.warn(error);
+			data = json;
+			// Color the SVG
+			Fuego.paint(json);
+		});
+	},
+
+	_devIgnite: function () {
+		// Fetch fire JSON
+		d3.json('http://0.0.0.0:3000/counties/', function (error, json) {
 			if (error) return console.warn(error);
 			data = json;
 			// Color the SVG
@@ -104,8 +117,10 @@ Fuego = {
 	},
 
 	_responsive: function () {
-		d3.select('g').attr('transform', 'scale(' + $('#map').width()/900 + ')');
-		$('svg').height($('#map').width()*0.618);
+		d3.select(window)
+				.on('resize', Fuego._responsive);
+		d3.select('g').attr('transform', 'scale('+$('.container').width()/900+')');
+		$('svg').height($('.container').width()*0.618);
 	}
 }
 
