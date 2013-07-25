@@ -15,7 +15,8 @@ Fuego = {
 	map: {
 		svg: '',
 		projection: '',
-		path: ''
+		path: '',
+		force: ''
 	},
 
 	createSVG: function () {
@@ -26,18 +27,19 @@ Fuego = {
 		m.svg = d3.select('.container')
 			.append('svg')
 			.append('g')
-			//.attr('width', s.width)
-			//.attr('height', s.height);
+			.attr('width', s.width)
+			.attr('height', s.height);
 
 		m.projection = d3.geo.albers()
 				//.center([37.37, -122.23])
 				//.rotate(s.rotate)
 				.parallels([29.5, 45.5])
-				.scale(1000)
-				//.translate([480, 250]);
+				.scale(1200)
+				.translate([480, 350]);
 
 		m.path = d3.geo.path()
 				.projection(m.projection);
+		m.force = d3.layout.force().size([s.width, s.height]);
 	},
 
 	build: function () {
