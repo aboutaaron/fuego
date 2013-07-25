@@ -48,11 +48,11 @@ Fuego = {
 			  		fires = object.county.fires.length;
 			  	}
 			  });
-			  return Fuego.getColor(fires);
+			  return Fuego._getColor(fires);
 		});
 	},
 
-	getColor: function (d) {
+	_getColor: function (d) {
     return d > 12 ? '#800026' :
            d > 10  ? '#BD0026' :
            d > 8  ? '#E31A1C' :
