@@ -3,10 +3,6 @@
 var Fuego = Fuego || {}, data;
 
 Fuego = {
-	init: function () {
-		Fuego.build();
-	},
-
 	build: function () {
 		// Fetch the SVG
 		d3.xml('images/Blank_California_Map.svg', 'image/svg+xml', function (svg) {
@@ -16,7 +12,7 @@ Fuego = {
 			Fuego.countyStats();
 
 			// Pull from Json
-			Fuego.ignite()
+			Fuego._ignite()
 
 		});
 	},
@@ -24,6 +20,16 @@ Fuego = {
 	ignite: function () {
 		// Fetch fire JSON from Heroku App
 		d3.json('http://calfire-api.herokuapp.com/counties/', function (error, json) {
+			if (error) return console.warn(error);
+			data = json;
+			// Color the SVG
+			Fuego.paint(json);
+		});
+	},
+
+	_ignite: function () {
+		// Fetch fire JSON from Heroku App
+		d3.json('http://0.0.0.0:3000/counties/', function (error, json) {
 			if (error) return console.warn(error);
 			data = json;
 			// Color the SVG
@@ -80,5 +86,5 @@ Fuego = {
 }
 
 jQuery(document).ready(function($) {
-	Fuego.init();
+	Fuego.build();
 });
