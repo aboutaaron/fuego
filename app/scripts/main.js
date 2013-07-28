@@ -5,12 +5,12 @@ var Fuego = Fuego || {}, data;
 Fuego = {
 
 	settings: {
-		width: 1160,
-		height: 800,
+		width: 400,
+		height: 500,
 		center: [-0.6, 38.7],
 		rotate: [104, -3, -15],
-		scale: 2500,
-		translate: [916, 320]
+		scale: 4700,
+		translate: [1890, 500]
 	},
 
 	map: {
@@ -51,7 +51,7 @@ Fuego = {
 
 			m.svg.append('path')
 				.datum(usa)
-				.attr('fill', '#626262')
+				.attr('fill', '#222')
 				.attr('d', m.path);
 
 			m.svg.selectAll('.county')
