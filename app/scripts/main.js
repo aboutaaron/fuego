@@ -10,7 +10,7 @@ Fuego = {
 		center: [-0.6, 38.7],
 		rotate: [104, -3, -15],
 		scale: 4700,
-		translate: [1890, 500]
+		translate: [1890, 530]
 	},
 
 	map: {
