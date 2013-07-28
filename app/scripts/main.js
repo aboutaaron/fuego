@@ -9,8 +9,8 @@ Fuego = {
 		height: 800,
 		center: [-0.6, 38.7],
 		rotate: [104, -3, -15],
-		scale: 1000,
-		translate: [480, 250]
+		scale: 2500,
+		translate: [916, 320]
 	},
 
 	map: {
@@ -24,7 +24,7 @@ Fuego = {
 		var m = Fuego.map;
 
 		// Fetch the SVG
-		m.svg = d3.select('.container')
+		m.svg = d3.select('.map')
 			.append('svg')
 			.append('g')
 			.attr('width', s.width)
