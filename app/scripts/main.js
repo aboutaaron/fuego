@@ -6,7 +6,7 @@ Fuego = {
 
 	settings: {
 		width: 400,
-		height: 500,
+		height: 800,
 		center: [-0.6, 38.7],
 		rotate: [104, -3, -15],
 		scale: 4700,
@@ -108,8 +108,8 @@ Fuego = {
 	_responsive: function () {
 		d3.select(window)
 			.on('resize', Fuego._responsive);
-		d3.select('g').attr('transform', 'scale('+$('.container').width()/900+')');
-		$('svg').height($('.container').width()*0.618);
+		d3.select('g').attr('transform', 'scale('+$('.map').width()/900+')');
+		$('svg').height($('.map').width());
 	}
 };
 
