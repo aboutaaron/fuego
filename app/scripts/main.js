@@ -7,6 +7,7 @@ Fuego = {
 	settings: {
 		width: 400,
 		height: 800,
+		centered: '',
 		center: [-0.6, 38.7],
 		rotate: [104, -3, -15],
 		scale: 4700,
@@ -61,7 +62,8 @@ Fuego = {
 						return d.properties.name.toLowerCase().replace(/\s/g,'-');
 					})
 					.attr('class', 'county')
-					.attr('d', m.path);
+					.attr('d', m.path)
+					.on("click", Fuego.clicked());
 		});
 
 		Fuego.ignite();
@@ -110,6 +112,32 @@ Fuego = {
 			.on('resize', Fuego._responsive);
 		d3.select('g').attr('transform', 'scale('+$('.map').width()/900+')');
 		$('svg').height($('.map').width());
+	},
+
+	clicked: function (d) {
+		var x, y, k;
+		var s = Fuego.settings;
+
+		if (d && s.centered !== d) {
+			var centroid = s.path.centroid(d);
+			x = centroid[0];
+			y = centroid[1];
+			k = 4;
+			s.centered = d;
+		} else {
+			x =  s.width / 2;
+			y = s.height / 2;
+			k = 1;
+			s.centered = null;
+		}
+		d3.selectAll('.county')
+			.classed('active', s.centered && function(d) { return d === s.centered; });
+
+		d3.select('g').transition()
+			.duration(750)
+			.attr('transform', "translate(" + s.width / 2 + "," + s.height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
+			.style('stroke-width', 1.5 / k + 'px');
+
 	}
 };
 
