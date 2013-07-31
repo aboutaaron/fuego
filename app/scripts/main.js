@@ -5,45 +5,44 @@ var Fuego = Fuego || {}, data;
 Fuego = {
 
 	settings: {
+		// d3 map vars
+		svg: '',
+		projection: '',
+		path: '',
+
+		// map projection settins
 		width: 400,
 		height: 800,
 		centered: '',
 		rotate: [119,0], // Longitude
 		center: [0, 36], // Latitude
-		scale: 3000, //4700
+		scale: 4000, //4700
 		translate: [380, 450],
 		parallels: [29.5, 45.5]
 	},
 
-	map: {
-		svg: '',
-		projection: '',
-		path: ''
-	},
-
 	createSVG: function () {
 		var s = Fuego.settings;
-		var m = Fuego.map;
 
 		// Fetch the SVG
-		m.svg = d3.select('.map')
+		s.svg = d3.select('.map')
 			.append('svg')
 			.append('g')
 			.attr('width', s.width)
 			.attr('height', s.height);
 
-		m.projection = d3.geo.albers()
+		s.projection = d3.geo.albers()
 				.scale(s.scale)
 				.rotate(s.rotate)
 				.center(s.center)
 				.translate(s.translate);
 
-		m.path = d3.geo.path()
-				.projection(m.projection);
+		s.path = d3.geo.path()
+				.projection(s.projection);
 	},
 
 	build: function () {
-		var m = Fuego.map;
+		var s = Fuego.settings;
 
 		Fuego.createSVG();
 		// https://s3-us-west-1.amazonaws.com/fuego-assets/usa_states_ca_counties.json
@@ -52,19 +51,19 @@ Fuego = {
 			var california = topojson.feature(json, json.objects.counties_ca);
 			var usa = topojson.feature(json, json.objects.states_all);
 
-			m.svg.append('path')
+			s.svg.append('path')
 				.datum(usa)
 				.attr('fill', '#222')
-				.attr('d', m.path);
+				.attr('d', s.path);
 
-			m.svg.selectAll('.county')
+			s.svg.selectAll('.county')
 					.data(california.features)
 				.enter().append('path')
 					.attr('id', function(d) {
 						return d.properties.name.toLowerCase().replace(/\s/g,'-');
 					})
 					.attr('class', 'county')
-					.attr('d', m.path)
+					.attr('d', s.path)
 					.on("click", Fuego.clicked);
 		});
 
