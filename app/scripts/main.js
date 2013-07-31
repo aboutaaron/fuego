@@ -132,6 +132,7 @@ Fuego = {
 	debug: function() {
 		var s = Fuego.settings;
 		if (s.debug === true) {
+			// load map with usa and california
 			d3.json('scripts/json/usa_states_ca_counties.json', function (json) {
 				// Load usa map
 				var california = topojson.feature(json, json.objects.counties_ca);
@@ -144,7 +145,12 @@ Fuego = {
 						.attr('fill', '#eee')
 						.attr('d', s.path);
 			});
+			// put a border around the map container to see the bounds
 			document.querySelector('.map').style.border = '1px solid red';
+			// log the current settings
+			console.log('Current settings:')
+			console.log(s)
+
 		} else {
 			console.warn('The debug property in settings is set to false. Set Fuego.settings.debug = true and return the function');
 		}
