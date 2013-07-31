@@ -8,10 +8,11 @@ Fuego = {
 		width: 400,
 		height: 800,
 		centered: '',
-		center: [-0.6, 38.7],
-		rotate: [104, -3, -15],
-		scale: 4700,
-		translate: [1890, 530]
+		rotate: [119,0], // Longitude
+		center: [0, 36], // Latitude
+		scale: 3000, //4700
+		translate: [380, 450],
+		parallels: [29.5, 45.5]
 	},
 
 	map: {
@@ -32,8 +33,9 @@ Fuego = {
 			.attr('height', s.height);
 
 		m.projection = d3.geo.albers()
-				.parallels([29.5, 45.5])
 				.scale(s.scale)
+				.rotate(s.rotate)
+				.center(s.center)
 				.translate(s.translate);
 
 		m.path = d3.geo.path()
@@ -49,6 +51,11 @@ Fuego = {
 			console.log(json.objects.counties_ca);
 			var california = topojson.feature(json, json.objects.counties_ca);
 			var usa = topojson.feature(json, json.objects.states_all);
+
+			m.svg.append('path')
+				.datum(usa)
+				.attr('fill', '#222')
+				.attr('d', m.path);
 
 			m.svg.selectAll('.county')
 					.data(california.features)
@@ -106,7 +113,7 @@ Fuego = {
 		d3.select(window)
 			.on('resize', Fuego._responsive);
 		d3.select('g').attr('transform', 'scale('+$('.map').width()/700+')');
-		$('svg').height($('.map').width()*1.295);
+		$('svg').height($('.map').width());
 	},
 
 	templatize: function (data) {
