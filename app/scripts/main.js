@@ -16,8 +16,8 @@ Fuego = {
 		centered: '',
 		rotate: [119,0], // Longitude
 		center: [0, 36], // Latitude
-		scale: 4000, //4700
-		translate: [380, 450],
+		scale: 3500, //4700
+		translate: [450, 380], // x, y
 		parallels: [29.5, 45.5],
 
 		// debug mode
