@@ -50,11 +50,6 @@ Fuego = {
 			var california = topojson.feature(json, json.objects.counties_ca);
 			var usa = topojson.feature(json, json.objects.states_all);
 
-			m.svg.append('path')
-				.datum(usa)
-				.attr('fill', '#222')
-				.attr('d', m.path);
-
 			m.svg.selectAll('.county')
 					.data(california.features)
 				.enter().append('path')
@@ -110,8 +105,8 @@ Fuego = {
 	_responsive: function () {
 		d3.select(window)
 			.on('resize', Fuego._responsive);
-		d3.select('g').attr('transform', 'scale('+$('.map').width()/900+')');
-		$('svg').height($('.map').width());
+		d3.select('g').attr('transform', 'scale('+$('.map').width()/700+')');
+		$('svg').height($('.map').width()*1.295);
 	},
 
 	templatize: function (data) {
@@ -121,6 +116,7 @@ Fuego = {
 	},
 
 	clicked: function () {
+		//d3.select(this).style('stroke', '#0AA0CC');
 		var abbr = this.id,
 				county, noFire;
 		data.forEach(function (object) {
