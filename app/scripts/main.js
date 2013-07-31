@@ -122,7 +122,7 @@ Fuego = {
 
 	clicked: function () {
 		//d3.select(this).style('stroke', '#0AA0CC');
-		document.getElementById(this.id).scrollIntoView(true);
+		$.scrollTo($('#'+this.id), 500, { offset: -60 });
 	},
 
 	debug: function() {
