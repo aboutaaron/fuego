@@ -61,7 +61,6 @@ Fuego = {
 					})
 					.attr('class', 'county')
 					.attr('d', s.path)
-					.on("click", Fuego.clicked);
 		});
 
 		Fuego.ignite();
@@ -74,6 +73,8 @@ Fuego = {
 			data = json;
 			// Color the SVG
 			Fuego.paint(json);
+			// Build templates
+			Fuego.templatize(json);
 		});
 	},
 
@@ -115,7 +116,7 @@ Fuego = {
 	templatize: function (data) {
 		var source = $('#counties-template').html();
 		var template = Handlebars.compile(source);
-		$('.info').html(template(data))
+		$('.info').html(template({objects:data}))
 	},
 
 	clicked: function () {
