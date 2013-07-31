@@ -45,6 +45,9 @@ Fuego = {
 	},
 
 	build: function () {
+		// loading
+		new Spinner({color: '#222', lines: 12, top: 50}).spin(document.querySelector('.info'));
+
 		var s = Fuego.settings;
 
 		Fuego.createSVG();
