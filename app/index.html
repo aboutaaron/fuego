@@ -13,19 +13,22 @@
         <!-- build:css({.tmp,app}) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet">
         <!-- build:js scripts/vendor/modernizr.js -->
         <script src="bower_components/modernizr/modernizr.js"></script>
         <!-- endbuild -->
     </head>
     <body onload="Fuego._responsive()">
-        <div class="container-fluid">
-            <div class="row-fluid">
-                <div class="span5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
                     <header class="page-header">
                         <h1>Fuego</h1>
+                        <p>All about fires</p>
                     </header>
+                    <section class="info"></section>
                 </div>
-                <div class="span7" style="border: 1px solid red;">
+                <div class="col-lg-7" style="border: 1px solid red;">
                     <section class="map"></section>
                 </div>
             </div>
@@ -47,7 +50,13 @@
         <script src="bower_components/jquery/jquery.js"></script>
         <script src="bower_components/d3/d3.min.js"></script>
         <script src="bower_components/topojson/topojson.js"></script>
+        <script src="bower_components/handlebars/handlebars.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
+
+        <script type="x-handlebars-template" id="counties-template">
+            <h1 id={{ county.slug }}>{{ county.name }}</h1>
+        </script>
+        <script type="x-handlebars-template"></script>
 </body>
 </html>

@@ -63,7 +63,7 @@ Fuego = {
 					})
 					.attr('class', 'county')
 					.attr('d', m.path)
-					.on("click", Fuego.clicked());
+					.on("click", Fuego.clicked);
 		});
 
 		Fuego.ignite();
@@ -114,30 +114,21 @@ Fuego = {
 		$('svg').height($('.map').width());
 	},
 
-	clicked: function (d) {
-		var x, y, k;
-		var s = Fuego.settings;
+	templatize: function (data) {
+		var source = $('#counties-template').html();
+		var template = Handlebars.compile(source);
+		$('.info').html(template(data))
+	},
 
-		if (d && s.centered !== d) {
-			var centroid = s.path.centroid(d);
-			x = centroid[0];
-			y = centroid[1];
-			k = 4;
-			s.centered = d;
-		} else {
-			x =  s.width / 2;
-			y = s.height / 2;
-			k = 1;
-			s.centered = null;
-		}
-		d3.selectAll('.county')
-			.classed('active', s.centered && function(d) { return d === s.centered; });
-
-		d3.select('g').transition()
-			.duration(750)
-			.attr('transform', "translate(" + s.width / 2 + "," + s.height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
-			.style('stroke-width', 1.5 / k + 'px');
-
+	clicked: function () {
+		var abbr = this.id,
+				county;
+		data.forEach(function (object) {
+			if (object.county.slug === abbr) {
+				county = object;
+			}
+		});
+		Fuego.templatize(county);
 	}
 };
 
