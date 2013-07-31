@@ -82,8 +82,8 @@ Fuego = {
 	paint: function (objects) {
 		d3.selectAll('.county')
 			.attr('fill', function () {
-				var abbr = this;
-				var fires;
+				var abbr = this,
+						fires;
 
 				objects.forEach(function (object) {
 					if (object.county.slug === abbr.id) {
@@ -122,13 +122,7 @@ Fuego = {
 
 	clicked: function () {
 		//d3.select(this).style('stroke', '#0AA0CC');
-		var abbr = this.id,
-				county, noFire;
-		data.forEach(function (object) {
-			if (object.county.slug === abbr) {
-				Fuego.templatize(object);
-			}
-		});
+		document.getElementById(this.id).scrollIntoView(true);
 	},
 
 	debug: function() {
