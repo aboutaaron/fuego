@@ -61,6 +61,7 @@ Fuego = {
 					})
 					.attr('class', 'county')
 					.attr('d', s.path)
+					.on("click", Fuego.clicked);
 		});
 
 		Fuego.ignite();
