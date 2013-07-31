@@ -122,13 +122,12 @@ Fuego = {
 
 	clicked: function () {
 		var abbr = this.id,
-				county;
+				county, noFire;
 		data.forEach(function (object) {
 			if (object.county.slug === abbr) {
-				county = object;
+				Fuego.templatize(object);
 			}
 		});
-		Fuego.templatize(county);
 	}
 };
 

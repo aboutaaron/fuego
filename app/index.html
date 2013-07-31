@@ -55,7 +55,12 @@
         <!-- endbuild -->
 
         <script type="x-handlebars-template" id="counties-template">
-            <h1 id={{ county.slug }}>{{ county.name }}</h1>
+            <h1 id={{ county.slug }}>{{ county.name }} County</h1>
+            <ul>
+            {{#each county.fires}}
+                <li>{{fire.name}}</li>
+            {{/each}}
+            </ul>
         </script>
         <script type="x-handlebars-template"></script>
 </body>
