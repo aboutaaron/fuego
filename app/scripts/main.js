@@ -18,7 +18,10 @@ Fuego = {
 		center: [0, 36], // Latitude
 		scale: 4000, //4700
 		translate: [380, 450],
-		parallels: [29.5, 45.5]
+		parallels: [29.5, 45.5],
+
+		// debug mode
+		debug: false
 	},
 
 	createSVG: function () {
@@ -49,12 +52,6 @@ Fuego = {
 		d3.json('scripts/json/usa_states_ca_counties.json', function (error, json) {
 			console.log(json.objects.counties_ca);
 			var california = topojson.feature(json, json.objects.counties_ca);
-			var usa = topojson.feature(json, json.objects.states_all);
-
-			s.svg.append('path')
-				.datum(usa)
-				.attr('fill', '#222')
-				.attr('d', s.path);
 
 			s.svg.selectAll('.county')
 					.data(california.features)
@@ -130,6 +127,27 @@ Fuego = {
 				Fuego.templatize(object);
 			}
 		});
+	},
+
+	debug: function() {
+		var s = Fuego.settings;
+		if (s.debug === true) {
+			d3.json('scripts/json/usa_states_ca_counties.json', function (json) {
+				// Load usa map
+				var california = topojson.feature(json, json.objects.counties_ca);
+				s.svg.append('path')
+					.datum(topojson.feature(json, json.objects.states_all))
+						.attr('fill', '#222')
+						.attr('d', s.path);
+				s.svg.append('path')
+					.datum(california)
+						.attr('fill', '#eee')
+						.attr('d', s.path);
+			});
+			document.querySelector('.map').style.border = '1px solid red';
+		} else {
+			console.warn('The debug property in settings is set to false. Set Fuego.settings.debug = true and return the function');
+		}
 	}
 };
 
