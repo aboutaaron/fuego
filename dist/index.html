@@ -10,23 +10,31 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet">
         <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="styles/1266db3a.main.css">
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" href="styles/37dd34f0.main.css">
         <script src="scripts/vendor/f7f27360.modernizr.js"></script>
     </head>
     <body onload="Fuego._responsive()">
+        <header class="navbar navbar-fixed-top navbar-inverse">
+          <div class="container">
+            <a class="navbar-brand" href="/"><i class="icon-fire"></i> Fuego</a>
+            <div class="nav-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="#"><i class="icon-info-sign"> About</i></a></li>
+                <li><a href="http://github.com/aboutaaron/fuego"><i class="icon-github"> Github</i></a></li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div><!-- /.container -->
+        </header>
         <div class="container">
             <div class="row">
                 <div class="col-lg-5">
-                    <header class="page-header">
-                        <h1>Fuego</h1>
-                        <p>All about fires</p>
-                    </header>
-                    <section class="info">Pick a county, any county.</section>
+                    <section class="info"></section>
                 </div>
                 <div class="col-lg-7">
-                    <section class="map"></section>
+                    <section class="map" data-spy="affix"></section>
                 </div>
             </div>
         </div>
@@ -43,19 +51,22 @@
             s.parentNode.insertBefore(g,s)}(document,'script'));
         </script>
 
-        <script src="scripts/4580b28d.main.js"></script>
+        <script src="scripts/04650bb8.main.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
 
         <script type="x-handlebars-template" id="counties-template">
-            <h1 id={{ county.slug }}>{{ county.name }} County</h1>
-            <ul class='chartlist'>
-            {{#each county.fires}}
-                <li>
-                    <a href="#">{{fire.name}}</a>
-                    <span class="acreage">{{fire.acreage}}</span>
-                    <span class="index" style="width: {{divide fire.acreage 50}}%">{{divide fire.acreage 100}}%</span>
-                </li>
+            {{#each objects}}
+                <h1 id={{ county.slug }}>{{ county.name }} County</h1>
+                <ul class='chartlist'>
+                {{#each county.fires}}
+                    <li>
+                        <a href="#">{{fire.name}}</a>
+                        <span class="acreage">{{fire.acreage}}</span>
+                        <span class="index" style="width: {{divide fire.acreage 50}}%">{{divide fire.acreage 100}}%</span>
+                    </li>
+                {{/each}}
+                </ul>
             {{/each}}
-            </ul>
         </script>
         <script type="x-handlebars-template"></script>
 </body>
