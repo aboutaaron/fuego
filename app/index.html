@@ -10,6 +10,9 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
         <!-- build:css({.tmp,app}) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
@@ -17,11 +20,27 @@
         <script src="bower_components/modernizr/modernizr.js"></script>
         <!-- endbuild -->
     </head>
-    <body>
+    <body onload="Fuego._responsive()">
+        <header class="navbar navbar-fixed-top navbar-inverse">
+          <div class="container">
+            <a class="navbar-brand" href="/"><i class="icon-fire"></i> Fuego</a>
+            <div class="nav-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="#"><i class="icon-info-sign"> About</i></a></li>
+                <li><a href="http://github.com/aboutaaron/fuego"><i class="icon-github"> Github</i></a></li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div><!-- /.container -->
+        </header>
         <div class="container">
-          <section class="span12">
-            <section id="map"></section>
-          </section>
+            <div class="row">
+                <div class="col-lg-5">
+                    <section class="info"></section>
+                </div>
+                <div class="col-lg-7">
+                    <section class="map" data-spy="affix"></section>
+                </div>
+            </div>
         </div>
 
         <!--[if lt IE 7]>
@@ -40,7 +59,28 @@
         <script src="bower_components/jquery/jquery.js"></script>
         <script src="bower_components/d3/d3.min.js"></script>
         <script src="bower_components/topojson/topojson.js"></script>
+        <script src="bower_components/handlebars/handlebars.js"></script>
+        <script src="bower_components/swag/lib/swag.js"></script>
+        <script src="bower_components/jquery.scrollTo/jquery.scrollTo.js"></script>
+        <script src="bower_components/spinjs/spin.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
+
+        <script type="x-handlebars-template" id="counties-template">
+            {{#each objects}}
+                <h1 id={{ county.slug }}>{{ county.name }} County</h1>
+                <ul class='chartlist'>
+                {{#each county.fires}}
+                    <li>
+                        <a href="#">{{fire.name}}</a>
+                        <span class="acreage">{{fire.acreage}}</span>
+                        <span class="index" style="width: {{divide fire.acreage 50}}%">{{divide fire.acreage 100}}%</span>
+                    </li>
+                {{/each}}
+                </ul>
+            {{/each}}
+        </script>
+        <script type="x-handlebars-template"></script>
 </body>
 </html>
