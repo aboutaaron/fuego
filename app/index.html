@@ -70,7 +70,7 @@
         <script type="x-handlebars-template" id="counties-template">
             {{#each objects}}
                 <h1 id={{ county.slug }}>{{ county.name }} County</h1>
-                <ul class='chartlist'>
+                <ul class='chartlist' id="{{ county.slug }}">
                 {{#each county.fires}}
                     <li>
                         <a href="#">{{fire.name}}</a>

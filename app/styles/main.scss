@@ -64,3 +64,13 @@ body {
 	  font-size: 0.875em;
 	}
 }
+
+.active {
+	animation: pound .5s infinite;
+}
+
+@keyframes pound {
+	from { transform: none }
+	50% { transform: scale(1.4) }
+	to { transform: none }
+}
