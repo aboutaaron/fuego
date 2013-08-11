@@ -13,7 +13,7 @@
         <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-        <link rel="stylesheet" href="styles/37dd34f0.main.css">
+        <link rel="stylesheet" href="styles/3876ae85.main.css">
         <script src="scripts/vendor/f7f27360.modernizr.js"></script>
     </head>
     <body onload="Fuego._responsive()">
@@ -51,18 +51,18 @@
             s.parentNode.insertBefore(g,s)}(document,'script'));
         </script>
 
-        <script src="scripts/04650bb8.main.js"></script>
+        <script src="scripts/925b79e6.main.js"></script>
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
 
         <script type="x-handlebars-template" id="counties-template">
             {{#each objects}}
                 <h1 id={{ county.slug }}>{{ county.name }} County</h1>
-                <ul class='chartlist'>
+                <ul class='chartlist' id="{{ county.slug }}">
                 {{#each county.fires}}
                     <li>
                         <a href="#">{{fire.name}}</a>
                         <span class="acreage">{{fire.acreage}}</span>
-                        <span class="index" style="width: {{divide fire.acreage 50}}%">{{divide fire.acreage 100}}%</span>
+                        <span data-fire="{{fire.name}}" class="index" style="width: {{divide fire.acreage 50}}%">{{divide fire.acreage 100}}%</span>
                     </li>
                 {{/each}}
                 </ul>
