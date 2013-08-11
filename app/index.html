@@ -75,7 +75,7 @@
                     <li>
                         <a href="#">{{fire.name}}</a>
                         <span class="acreage">{{fire.acreage}}</span>
-                        <span class="index" style="width: {{divide fire.acreage 50}}%">{{divide fire.acreage 100}}%</span>
+                        <span data-fire="{{fire.name}}" class="index" style="width: {{divide fire.acreage 50}}%">{{divide fire.acreage 100}}%</span>
                     </li>
                 {{/each}}
                 </ul>

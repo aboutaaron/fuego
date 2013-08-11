@@ -79,6 +79,8 @@ Fuego = {
 			Fuego.paint(json);
 			// Build templates
 			Fuego.templatize(json);
+			// Light
+			Fuego.active(json);
 		});
 	},
 
@@ -126,6 +128,20 @@ Fuego = {
 	clicked: function () {
 		//d3.select(this).style('stroke', '#0AA0CC');
 		$.scrollTo($('#'+this.id), 500, { offset: -60 });
+	},
+
+	active: function (input) {
+		for (var key in input) {
+			var county = input[key].county
+
+			for (var key in county.fires) {
+				var fire = county.fires[key].fire
+
+				if (fire.active === 't') {
+					$("span[data-fire='"+fire.name+"']").addClass('active');
+				}
+			}
+		}
 	},
 
 	debug: function() {
