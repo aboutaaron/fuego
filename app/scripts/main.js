@@ -137,7 +137,7 @@ Fuego = {
 			for (var key in county.fires) {
 				var fire = county.fires[key].fire
 
-				if (fire.active === 't') {
+				if (fire.active === 't' || fire.active === true) {
 					$("span[data-fire='"+fire.name+"']").addClass('active');
 				}
 			}
