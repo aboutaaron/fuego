@@ -23,6 +23,7 @@
         "d3": false,
         "jQuery": false,
         "topojson": false,
-        "Handlebars": false
+        "Handlebars": false,
+        "Spinner": false
     }
 }

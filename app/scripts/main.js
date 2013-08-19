@@ -64,7 +64,7 @@ Fuego = {
 					})
 					.attr('class', 'county')
 					.attr('d', s.path)
-					.on("click", Fuego.clicked);
+					.on('click', Fuego.clicked);
 		});
 
 		Fuego.ignite();
@@ -122,7 +122,7 @@ Fuego = {
 	templatize: function (data) {
 		var source = $('#counties-template').html();
 		var template = Handlebars.compile(source);
-		$('.info').html(template({objects:data}))
+		$('.info').html(template({objects:data}));
 	},
 
 	clicked: function () {
@@ -132,13 +132,13 @@ Fuego = {
 
 	active: function (input) {
 		for (var key in input) {
-			var county = input[key].county
+			var county = input[key].county;
 
-			for (var key in county.fires) {
-				var fire = county.fires[key].fire
+			for (var other_key in county.fires) {
+				var fire = county.fires[other_key].fire;
 
 				if (fire.active === 't' || fire.active === true) {
-					$("span[data-fire='"+fire.name+"']").addClass('active');
+					$('span[data-fire=\''+fire.name+'\']').addClass('active');
 				}
 			}
 		}
@@ -163,8 +163,7 @@ Fuego = {
 			// put a border around the map container to see the bounds
 			document.querySelector('.map').style.border = '1px solid red';
 			// log the current settings
-			console.log('Current settings:')
-			console.log(s)
+			console.log('Current settings:\n', s);
 
 		} else {
 			console.warn('The debug property in settings is set to false. Set Fuego.settings.debug = true and return the function');
